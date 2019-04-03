@@ -21,13 +21,21 @@ import rddlgym
 
 import os
 import json
-from enum import Enum, auto
+from enum import Enum
 
+# MRJ: For compatibility with Python 3.5.x. This frankly looks terrible.
+try:
+    from enum import auto
 
-class Mode(Enum):
-    RAW = auto()
-    AST = auto()
-    SCG = auto()
+    class Mode(Enum):
+        RAW = auto()
+        AST = auto()
+        SCG = auto()
+except ImportError:
+    class Mode(Enum):
+        RAW = 0
+        AST = 1
+        SCG = 2
 
 
 def read_db():
