@@ -103,7 +103,7 @@ class Trajectory:
         """Saves the trajectory in the filepath as a CSV file."""
         # pylint: disable=invalid-name
         dirname = os.path.dirname(filepath)
-        if not os.path.exists(dirname):
+        if dirname and not os.path.exists(dirname):
             os.makedirs(dirname)
 
         df = self.as_dataframe()
