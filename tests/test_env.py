@@ -40,7 +40,7 @@ def test_init(env):
     assert isinstance(env._compiler, rddl2tf.compilers.DefaultCompiler)
     assert env._timestep is None
     assert env._state is None
-    assert isinstance(env._sess, tf.Session)
+    assert isinstance(env._sess, tf.compat.v1.Session)
     assert env._sess.graph is env._compiler.graph
 
 

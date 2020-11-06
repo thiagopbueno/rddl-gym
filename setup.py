@@ -41,7 +41,7 @@ setup(
     scripts=["scripts/rddlgym"],
     python_requires=">=3.6",
     install_requires=[
-        "tensorflow<2.0",
+        "tensorflow>=2.0",
         "gym",
         "pandas",
         "matplotlib",
