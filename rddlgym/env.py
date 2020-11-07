@@ -43,13 +43,13 @@ class RDDLEnv(gym.Env):
 
         self._graph = self._compiler.graph
 
-        self._config_proto = tf.ConfigProto(
+        self._config_proto = tf.compat.v1.ConfigProto(
             inter_op_parallelism_threads=1,
             intra_op_parallelism_threads=1,
             log_device_placement=False,
         )
 
-        self._sess = tf.Session(graph=self._graph, config=self._config_proto)
+        self._sess = tf.compat.v1.Session(graph=self._graph, config=self._config_proto)
 
         self.observation_space = self._create_observation_space()
         self.action_space = self._create_action_space()
